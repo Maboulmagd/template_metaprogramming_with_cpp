@@ -10,5 +10,4 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lc++")
 
 add_subdirectory(chapter01)
 add_subdirectory(chapter02)
-
-#add_executable(template_metaprogramming_with_cpp main.cpp)
+add_subdirectory(chapter03)
