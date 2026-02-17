@@ -15,7 +15,7 @@ namespace MTL
     }
 
     template <typename T>
-    [[nodiscard]] void swap(T& first, T& second)
+    void swap(T& first, T& second)
     {
         T temp = std::move(first);
         first = std::move(second);
@@ -52,6 +52,12 @@ namespace MTL
     private:
         T value_;
     };
+
+    template<typename T>
+    constexpr T pi = 3.14f;
+
+    template<typename T>
+    constexpr T e = 2.71f;
 }
 
 int main(int argc, char** argv)
@@ -98,6 +104,24 @@ int main(int argc, char** argv)
     StringBox string_box;
     string_box.set("Hello World!");
     std::println("{}", string_box.get());
+
+    auto pi_float = MTL::pi<float>;
+    std::println("{}", pi_float);
+
+    auto pi_double = MTL::pi<double>;
+    std::println("{}", pi_double);
+
+    auto pi_long_double = MTL::pi<long double>;
+    std::println("{}", pi_long_double);
+
+    auto e_float = MTL::e<float>;
+    std::println("{}", e_float);
+
+    auto e_double = MTL::e<double>;
+    std::println("{}", e_double);
+
+    auto e_long_double = MTL::e<long double>;
+    std::println("{}", e_long_double);
 
     return 0;
 }
