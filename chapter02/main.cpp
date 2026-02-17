@@ -1,6 +1,7 @@
 #include "Printer.h"
 
 #include <iostream>
+#include <vector>
 
 #include "SmartArray.h"
 
@@ -30,33 +31,39 @@ int main(int argc, char** argv)
     //
     // std::cout << odds << std::endl;
 
+    std::println("");
 
-    printer::Printer<std::string> printer;
+    chapter02::Printer<std::string> printer;
     printer << std::string{"Hello World"};
 
-    printer::Printer<bool> printer2;
+    chapter02::Printer<bool> printer2;
     printer2 << true;
 
-    printer::Printer<std::vector<int>> printer3;
+    chapter02::Printer<std::vector<int>> printer3;
     printer3 << std::vector<int>{1,2,3};
 
-    printer::Printer<int> printer4;
+    chapter02::Printer<int> printer4;
     printer4 << 1;
 
-    printer::Printer<int*> printer5;
+    chapter02::Printer<int*> printer5;
     int* x = new int{1};
     printer5 << x;
     delete x;
 
+    std::println("");
 
-    smart_array::SmartArray<int, 10> stackAllocatedArray;
+    chapter02::smart_array::SmartArray<int, 10> stackAllocatedArray;
     stackAllocatedArray.print();
 
-    smart_array::SmartArray<int> heapAllocatedArray(10);
+    chapter02::smart_array::SmartArray<int> heapAllocatedArray(10);
     heapAllocatedArray.print();
 
-    smart_array::SmartArray<int*> heapAllocatedArray2({1,2,3,4,5});
+    chapter02::smart_array::SmartArray<int*> heapAllocatedArray2({1,2,3,4,5});
     heapAllocatedArray2.print();
+
+    std::println("");
+
+
 
 
 

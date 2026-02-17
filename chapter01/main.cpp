@@ -1,18 +1,5 @@
 #include <iostream>
 
-/*
-Goal: Start with simple templates; understand instantiation and specialization.
-Challenges:
-
-Implement a templated min / max / clamp function.
-
-Write a templated swap function that works for any type.
-
-Create a simple wrapper class Box<T> that holds a value of type T and implements get() and set().
-
-Optional: implement template aliases like using IntBox = Box<int>;.
- */
-
 namespace MTL
 {
     template <typename T>
@@ -28,6 +15,14 @@ namespace MTL
     }
 
     template <typename T>
+    [[nodiscard]] void swap(T& first, T& second)
+    {
+        T temp = std::move(first);
+        first = std::move(second);
+        second = std::move(temp);
+    }
+
+    template <typename T>
     [[nodiscard]] constexpr T clamp(const T& value, const T& lower_bound, const T& upper_bound)
     {
         if (value < lower_bound)
@@ -39,14 +34,6 @@ namespace MTL
             return upper_bound;
         }
         return value;
-    }
-
-    template <typename T>
-    void swap(T& first, T& second)
-    {
-        T temp = std::move(first);
-        first = std::move(second);
-        second = std::move(temp);
     }
 
     template <typename T>
@@ -65,10 +52,7 @@ namespace MTL
     private:
         T value_;
     };
-
-
 }
-
 
 int main(int argc, char** argv)
 {

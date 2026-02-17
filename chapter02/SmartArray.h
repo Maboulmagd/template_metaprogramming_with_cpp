@@ -3,7 +3,7 @@
 
 #include <cassert>
 
-namespace smart_array
+namespace chapter02::smart_array
 {
     template<typename Derived>
     class Printer

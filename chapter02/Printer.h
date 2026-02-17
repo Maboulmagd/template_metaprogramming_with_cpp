@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace printer
+namespace chapter02
 {
     template <typename T>
     class Printer
